@@ -5,16 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListaPessoasComponent } from './components/lista-pessoas/lista-pessoas.component';
 import { FormPessoaComponent } from './components/form-pessoa/form-pessoa.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
     ListaPessoasComponent,
-    FormPessoaComponent
+    FormPessoaComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
