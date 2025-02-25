@@ -36,4 +36,4 @@ export class PessoaService {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }
-g
+
