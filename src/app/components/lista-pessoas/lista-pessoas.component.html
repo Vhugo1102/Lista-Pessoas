@@ -1,1 +1,42 @@
-<p>lista-pessoas works!</p>
+
+<div class="container mt-4">
+  <h2 class="text-center">Lista de Pessoas</h2>
+  <table class="table table-bordered table-striped mt-3">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Endereço</th>
+        <th>CEP</th>
+        <th>UF</th>
+        <th>Ativo</th>
+        <th>Contatos</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pessoa of pessoas">
+        <td>{{ pessoa.id }}</td>
+        <td>{{ pessoa.nome }}</td>
+        <td>{{ pessoa.endereco }}</td>
+        <td>{{ pessoa.cep }}</td>
+        <td>{{ pessoa.uf }}</td>
+        <td>
+          <span [class.text-success]="pessoa.ativo" [class.text-danger]="!pessoa.ativo">
+            {{ pessoa.ativo ? 'Sim' : 'Não' }}
+          </span>
+        </td>
+        <td>
+          <ul *ngIf="pessoa.contatos && pessoa.contatos.length > 0">
+            <li *ngFor="let contato of pessoa.contatos">{{ contato }}</li>
+          </ul>
+          <span *ngIf="!pessoa.contatos || pessoa.contatos.length === 0">Nenhum</span>
+        </td>
+        <td>
+          <button class="btn btn-warning btn-sm me-2">Editar</button>
+          <button class="btn btn-danger btn-sm" (click)="excluirPessoa(pessoa.id)">Excluir</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
