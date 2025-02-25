@@ -15,7 +15,6 @@ export class PessoaService {
   getPessoas(): Observable<Pessoa[]> {
     return this.http.get<Pessoa[]>(this.apiUrl);
   }
-
   // Buscar pessoa por ID
   getPessoaById(id: number): Observable<Pessoa> {
     return this.http.get<Pessoa>(`${this.apiUrl}/${id}`);

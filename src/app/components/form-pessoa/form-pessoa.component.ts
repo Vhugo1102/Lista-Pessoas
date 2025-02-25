@@ -65,10 +65,16 @@ export class FormPessoaComponent implements OnInit {
         this.pessoaService.addPessoa(pessoa).subscribe(() => {
           alert('Pessoa cadastrada com sucesso!');
           this.router.navigate(['/']);
+        }, error => {
+          console.error('Erro ao cadastrar pessoa:', error);
+          alert('Erro ao cadastrar pessoa. Verifique a API.');
         });
       }
+    } else {
+      alert('Preencha todos os campos corretamente.');
     }
   }
+
   buscarCep(): void {
     const cep = this.pessoaForm.get('cep')?.value;
 

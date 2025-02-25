@@ -19,8 +19,11 @@ export class ListaPessoasComponent implements OnInit {
   carregarPessoas(): void {
     this.pessoaService.getPessoas().subscribe((dados) => {
       this.pessoas = dados;
+    }, error => {
+      console.error('Erro ao carregar lista:', error);
     });
   }
+
 
   excluirPessoa(id: number): void {
     if (confirm('Tem certeza que deseja excluir esta pessoa?')) {

@@ -1,0 +1,22 @@
+{
+  "pessoas": [
+    {
+      "id": "0a95",
+      "nome": "Adriana",
+      "cep": "03110020",
+      "endereco": "Rua Monsenhor João Felipo",
+      "cidade": "São Paulo",
+      "uf": "SP",
+      "ativo": true
+    },
+    {
+      "id": "23e8",
+      "nome": "vitor",
+      "cep": "02936150",
+      "endereco": "Rua Major Procópio de Almeida",
+      "cidade": "São Paulo",
+      "uf": "SP",
+      "ativo": true
+    }
+  ]
+}
