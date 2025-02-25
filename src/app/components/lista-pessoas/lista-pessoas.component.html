@@ -1,4 +1,9 @@
 
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2 class="text-center">Lista de Pessoas</h2>
+  <a class="btn btn-primary" routerLink="/cadastro">+ Nova Pessoa</a>
+</div>
+
 <div class="container mt-4">
   <h2 class="text-center">Lista de Pessoas</h2>
   <table class="table table-bordered table-striped mt-3">
@@ -33,7 +38,7 @@
           <span *ngIf="!pessoa.contatos || pessoa.contatos.length === 0">Nenhum</span>
         </td>
         <td>
-          <button class="btn btn-warning btn-sm me-2">Editar</button>
+          <button class="btn btn-warning btn-sm me-2" [routerLink]="['/editar', pessoa.id]">Editar</button>
           <button class="btn btn-danger btn-sm" (click)="excluirPessoa(pessoa.id)">Excluir</button>
         </td>
       </tr>

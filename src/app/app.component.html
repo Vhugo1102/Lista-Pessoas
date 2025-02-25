@@ -1,4 +1,22 @@
-<div class="container text-center mt-5">
-  <h1 class="text-primary">Bootstrap instalado com sucesso! 🎉</h1>
-  <button class="btn btn-success">Clique aqui</button>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">Angular CRUD</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/" routerLinkActive="active">Lista de Pessoas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/cadastro" routerLinkActive="active">Nova Pessoa</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-4">
+  <router-outlet></router-outlet>
 </div>
