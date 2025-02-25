@@ -12,11 +12,12 @@
 
     <div class="mb-3">
       <label for="cep" class="form-label">CEP</label>
-      <input id="cep" type="text" class="form-control" formControlName="cep">
+      <input id="cep" type="text" class="form-control" formControlName="cep" (blur)="buscarCep()">
       <div *ngIf="pessoaForm.get('cep')?.invalid && pessoaForm.get('cep')?.touched" class="text-danger">
         O CEP é obrigatório.
       </div>
     </div>
+
 
     <div class="mb-3">
       <label for="endereco" class="form-label">Endereço</label>

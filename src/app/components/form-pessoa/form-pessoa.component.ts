@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PessoaService } from 'src/app/services/pessoa.service';
 import { Pessoa } from 'src/app/models/pessoa';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ViaCepService } from 'src/app/services/via-cep.service';
 
 @Component({
   selector: 'app-form-pessoa',
@@ -16,9 +17,11 @@ export class FormPessoaComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private pessoaService: PessoaService,
+    private viaCepService: ViaCepService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
+
 
   ngOnInit(): void {
     // Criar estrutura do formulário
@@ -66,5 +69,23 @@ export class FormPessoaComponent implements OnInit {
       }
     }
   }
+  buscarCep(): void {
+    const cep = this.pessoaForm.get('cep')?.value;
+
+    if (cep && cep.length === 8) {
+      this.viaCepService.buscarEndereco(cep).subscribe(dados => {
+        if (!dados.erro) {
+          this.pessoaForm.patchValue({
+            endereco: dados.logradouro,
+            cidade: dados.localidade,
+            uf: dados.uf
+          });
+        } else {
+          alert('CEP não encontrado!');
+        }
+      });
+    }
+  }
+
 }
 
